@@ -3,9 +3,11 @@ package controllers
 import models.Task
 import play.api.data.Forms._
 import play.api.data._
+import play.api.i18n._
 import play.api.mvc._
+import javax.inject.Inject
 
-class Application extends Controller {
+class Application @Inject()(val messagesApi: MessagesApi) extends Controller with I18nSupport {
 
   val taskForm = Form(
     "label" -> nonEmptyText
